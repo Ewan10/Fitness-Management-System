@@ -1,0 +1,35 @@
+<body>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="mx-auto col-10 col-md-8 col-lg-6">
+                <div class="spinner" *ngIf="isLoading">
+                    <app-loading-spinner></app-loading-spinner>
+                </div>
+                <div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
+                <form *ngIf="!isLoading" [formGroup]="loginForm" id="log-in" (ngSubmit)="onLogin()">
+
+                    <div class="form-content px-5 py-3">
+                        <legend>Log in</legend>
+
+                        <label for="email" class="form-label">E-mail</label>
+                        <input type="email" name="email" class="form-control" placeholder="email"
+                            formControlName="email" required>
+
+                        <span *ngIf="!loginForm.get('email').valid && loginForm.get('email').touched"
+                            class="help-block"><small>The e-mail field is required</small></span>
+
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" name="password" class="form-control" formControlName="password"
+                            placeholder="password" required minlength="6">
+
+                        <span *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched"
+                            class="help-block"><small>The password field is required</small></span>
+
+                        <button class="btn btn-primary mt-3 w-50" type="submit" [disabled]="!loginForm.valid">Log
+                            in</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

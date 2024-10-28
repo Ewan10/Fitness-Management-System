@@ -1,0 +1,17 @@
+input.ng-valid,
+input.ng-touched {
+    border: 1px solid red;
+}
+
+button {
+    box-shadow: 3px 3px 1px lightblue;
+}
+
+button:active {
+    box-shadow: 0px 2px 0px lightblue;
+    transform: translateY(1.5px);
+}
+
+.input-span-margin {
+    margin-bottom: 0.8rem;
+}

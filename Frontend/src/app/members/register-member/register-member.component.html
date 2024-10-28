@@ -1,0 +1,78 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#registerModal">
+    Register new member
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="registerModalLabel">Member Registration Form</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="onReset()"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="memberForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <div class="input-span-margin">
+                            <input class="form-control" id="name" formControlName="name" name="name" type="text">
+                            <span *ngIf="!memberForm.get('name').valid && memberForm.get('name').touched"
+                                class="help-block"><small>The name field is required</small></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <div class="input-span-margin">
+                            <input class="form-control" id="age" formControlName="age" name="age" type="number">
+                            <span *ngIf="!memberForm.get('age').valid && memberForm.get('age').touched"
+                                class="help-block"><small>The age field is required and must be greater than 16 years
+                                    old</small></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <div class="input-span-margin">
+                            <input class="form-control" id="address" formControlName="address" name="address"
+                                type="text">
+                            <span *ngIf="!memberForm.get('address').valid && memberForm.get('address').touched"
+                                class="help-block"><small>The address field is required</small></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <div class="input-span-margin">
+                            <input class="form-control" id="phone" formControlName="phone" name="phone" type="text">
+                            <span *ngIf="!memberForm.get('phone').valid && memberForm.get('phone').touched"
+                                class="help-block"><small>The phone field is
+                                    required</small></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="classes">Classes</label>
+                        <select class="form-select" name="classes" id="classes" formControlName="classes" multiple>
+                            <option value="aerobics">Aerobics</option>
+                            <option value="instruments">Instruments/Weights</option>
+                            <option value="boxing">Boxing</option>
+                            <option value="personalTrainer">Personal Trainer</option>
+                            <option value="yoga">Yoga</option>
+                            <option value="breakdance">Breakdance</option>
+                            <option value="jiu-jitsu">Jiu-Jitsu</option>
+                        </select>
+                        <span *ngIf="!memberForm.get('classes').valid && memberForm.get('classes').touched"
+                            class="help-block"><small>The classes field
+                                is required</small></span>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" (click)="onReset()"
+                            data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" [disabled]="!memberForm.valid"
+                            data-bs-dismiss="modal">Register new member</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

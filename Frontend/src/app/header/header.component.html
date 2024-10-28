@@ -1,0 +1,17 @@
+<div class="navigation">
+    <div class="group-link">
+        <a class="home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" routerLink="/">Home</a>
+        <div *ngIf="isAuthenticated"> <!---->
+            <a routerLinkActive="active" routerLink="/members">Members</a>
+            <a routerLinkActive="active" routerLink="/trainers">Trainers</a>
+            <a routerLinkActive="active" routerLink="/classes">Classes</a>
+        </div>
+    </div>
+    <div *ngIf="!isAuthenticated" class="auth">
+        <a routerLinkActive="active" routerLink="/login">Log in</a>
+        <a routerLinkActive="active" routerLink="/signup">Sign up</a>
+    </div>
+    <div *ngIf="isAuthenticated" class="auth">
+        <a routerLink="/" (click)="onLogout()">Log out</a>
+    </div>
+</div>

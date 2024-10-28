@@ -1,0 +1,62 @@
+<!-- Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editModalLabel">Edit Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="onReset()"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="editForm" (ngSubmit)="onEdit()">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input class="form-control" id="name" formControlName="name" name="name" type="text">
+                        <span *ngIf="!editForm.get('name').valid && editForm.get('name').touched"
+                            class="help-block"><small>The name field is required</small></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input class="form-control" id="phone" formControlName="phone" name="phone" type="text">
+                        <span *ngIf="!editForm.get('phone').valid && editForm.get('phone').touched"
+                            class="help-block"><small>The phone field is required</small></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input class="form-control" id="address" formControlName="address" name="address" type="text">
+                        <span *ngIf="!editForm.get('address').valid && editForm.get('address').touched"
+                            class="help-block"><small>The address field is required</small></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input class="form-control" id="email" formControlName="email" name="email" type="email">
+                        <span *ngIf="!editForm.get('email').valid && editForm.get('email').touched"
+                            class="help-block"><small>The email field is
+                                required</small></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="class">Class</label>
+                        <select class="form-select" name="class" id="class" formControlName="class">
+                            <option value="aerobics">Aerobics</option>
+                            <option value="instruments">Instruments/Weights</option>
+                            <option value="boxing">Boxing</option>
+                            <option value="personalTrainer">Personal Trainer</option>
+                            <option value="yoga">Yoga</option>
+                            <option value="breakdance">Breakdance</option>
+                            <option value="jiu-jitsu">Jiu-Jitsu</option>
+                        </select>
+                        <span *ngIf="!editForm.get('class').valid && editForm.get('class').touched"
+                            class="help-block"><small>The class field
+                                is required</small></span>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" (click)="onReset()"
+                            data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" [disabled]="!editForm.valid"
+                            data-bs-dismiss="modal">Confirm</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

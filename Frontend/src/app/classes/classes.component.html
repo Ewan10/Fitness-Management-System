@@ -1,0 +1,37 @@
+<html class="html">
+<div class="container">
+    <table class="table table-striped table-hover align-middle caption-top text-center">
+        <caption class="fs-3 fw-normal text-center mb-4"> Classes of the Fitness Centre </caption>
+        <thead>
+            <tr class="bg-light">
+                <th class="fs-5" scope="col"> Name </th>
+                <th class="fs-5" scope="col"> Trainer </th>
+                <th class="fs-5" scope="col"> Room </th>
+                <th class="fs-5" scope="col"> Number of Members </th>
+                <th class="fs-5" scope="col"> Schedule </th>
+                <th class="fs-5" scope="col"> Action </th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider" *ngIf="classes?.length > 0">
+            <tr *ngFor="let _class of classes">
+                <td scope="col"> {{ _class.name }}</td>
+                <td scope="col"> {{ _class.trainer }}</td>
+                <td scope="col"> {{ _class.room }}</td>
+                <td scope="col"> {{ _class.numberOfMembers }}</td>
+                <td *ngIf="_class.schedule.length > 0">
+                    <span *ngFor="let object of _class.schedule">
+                        {{ object.session }}<br></span>
+                </td>
+
+                <td><button class="btn btn-info" (click)="onEdit(_class._id)" type="button" data-bs-toggle="modal"
+                        data-bs-target="#editModal">Edit</button> | <button class="btn btn-info"
+                        (click)="onDelete(_class._id)" type="button">Delete</button> </td>
+            </tr>
+        </tbody>
+    </table>
+    <button id="back" type="button" class="btn btn-primary my-1 mx-2" routerLink="/"> Back </button>
+    <app-create-class></app-create-class>
+    <app-edit-class></app-edit-class>
+</div>
+
+</html>

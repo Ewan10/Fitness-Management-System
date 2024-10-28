@@ -1,0 +1,33 @@
+body {
+    height: 91.5vh;
+    background-color: rgb(225, 236, 239);
+    padding-top: 1%;
+}
+
+.box {
+    box-sizing: border-box;
+    margin: 1% 5%;
+    height: auto;
+    padding-bottom: 3rem;
+    background: rgb(15, 49, 100);
+    background: radial-gradient(circle, rgba(15, 49, 100, 1) 0%, rgba(2, 73, 249, 1) 49%, rgb(8, 127, 201) 100%);
+    opacity: 0.6;
+    box-shadow: 5px 5px 5px 3px rgb(132, 180, 220);
+    border-radius: 10px;
+}
+
+h1 {
+    padding-top: 4rem;
+    padding-left: 14rem;
+    font-weight: 500;
+    color: #fff;
+    text-shadow: 1px 2px black;
+}
+
+.description {
+    padding-top: 2rem;
+    padding-left: 15rem;
+    align-content: center;
+    font-size: 25px;
+    color: #fff;
+}

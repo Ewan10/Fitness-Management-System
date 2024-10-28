@@ -1,0 +1,119 @@
+<!-- Button trigger modal -->
+
+<head>
+    <script src="https://kit.fontawesome.com/3fc3cf6e45.js" crossorigin="anonymous"></script>
+</head>
+<button type="button" class="button-style btn btn-warning" data-bs-toggle="modal" data-bs-target="#createModal">
+    Create a class
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createModalLabel">Create a Class</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="onReset()"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="classForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <label for="className">Class</label>
+                        <div class="input-span-margin">
+                            <select class="form-select" name="className" id="className" formControlName="className">
+                                <option value="Aerobics">Aerobics</option>
+                                <option value="Instruments">Instruments/Weights</option>
+                                <option value="Boxing">Boxing</option>
+                                <option value="PersonalTrainer">Personal Trainer</option>
+                                <option value="Yoga">Yoga</option>
+                                <option value="Breakdance">Breakdance</option>
+                                <option value="Jiu-Jitsu">Jiu-Jitsu</option>
+                            </select>
+                            <span *ngIf="!classForm.get('className').valid && classForm.get('className').touched"
+                                class="help-block"><small>The class field is required</small></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="trainer">Trainer</label>
+                        <div class="input-span-margin">
+                            <input class="form-control" id="phone" formControlName="trainer" name="trainer" type="text">
+                            <span *ngIf="!classForm.get('trainer').valid && classForm.get('trainer').touched"
+                                class="help-block"><small>The trainer field is required</small></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="room">Room</label>
+                        <div class="input-span-margin">
+                            <input class="form-control" id="room" formControlName="room" min="1" name="room"
+                                type="number">
+                            <span *ngIf="!classForm.get('room').valid && classForm.get('room').touched"
+                                class="help-block"><small>The room field is required</small></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="membersNo">No of Members</label>
+                        <div class="input-span-margin">
+                            <input class="form-control" id="membersNo" formControlName="membersNo" name="membersNo"
+                                type="number" max="15" min="4">
+                            <span *ngIf="!classForm.get('membersNo').valid && classForm.get('membersNo').touched"
+                                class="help-block"><small>The number of members is required and must between 4 to
+                                    15</small></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div formArrayName="schedule">
+                            <div class="schedule">Schedule</div>
+                            <div *ngFor="let session of getSessions(); let i = index">
+                                <fieldset class="session" [formGroupName]="i">
+                                    <legend>Session {{i+1}}</legend>
+                                    <div class="form-group">
+                                        <label for="day">Day</label>
+                                        <div class="input-span-margin">
+                                            <select class="form-select" name="day" id="className" formControlName="day">
+                                                <option value="Monday">Monday</option>
+                                                <option value="Tuesday">Tuesday</option>
+                                                <option value="Wednesday">Wednesday</option>
+                                                <option value="Thursday">Thursday</option>
+                                                <option value="Friday">Friday</option>
+                                                <option value="Saturday">Saturday</option>
+                                            </select>
+                                            <!-- <span *ngIf="!session[j].valid && session[j].touched"
+                                                class="help-block"><small>The day field is required</small></span> -->
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="startingTime">Starting Time</label>
+                                        <input class="form-control" id="startingTime" formControlName="startingTime"
+                                            name="startingTime" type="time"><i class="fa-regular fa-clock"
+                                            style="color: #0080ff;"></i>
+                                        <!-- <span *ngIf="!session[j+1].valid && session[j+1].touched"
+                                            class="help-block"><small>The starting hour is required</small></span> -->
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="endingTime">Finishing Time</label>
+                                        <input class="form-control" id="endingTime" formControlName="endingTime"
+                                            name="endingTime" type="time">
+                                        <!-- <span *ngIf="!session[j+2].valid && session[j+2].touched"
+                                            class="help-block"><small>The starting hour is required</small></span> -->
+                                    </div>
+                                    <button class="btn btn-danger remove-session" type="button"
+                                        (click)="onRemoveSession(i)">Remove
+                                        Sesion</button>
+                                </fieldset>
+                            </div>
+                            <button class="btn btn-success" type="button" (click)="onAddSession()">Add Session</button>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" (click)="onReset()"
+                            data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" [disabled]="!classForm.valid"
+                            data-bs-dismiss="modal">Create class</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

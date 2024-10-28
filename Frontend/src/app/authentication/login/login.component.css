@@ -1,0 +1,41 @@
+body {
+    height: 91.5vh;
+    background-color: rgb(225, 236, 239);
+    padding-top: 1%;
+}
+
+form {
+    width: 30rem;
+    border: 3px solid rgb(48, 22, 220);
+    border-radius: 5%;
+    margin: 3% 18%;
+    padding: 1%;
+    background-color: rgb(218, 236, 244);
+    box-shadow: 3px 2px 2px 1px rgb(157, 202, 220);
+}
+
+.form-content {
+    margin-left: 15%;
+}
+
+legend {
+    margin-left: 23%;
+    background-color: white;
+    width: auto;
+    padding: 2% 5%;
+    border-radius: 5%;
+}
+
+#log-in label,
+input {
+    width: 50%;
+}
+
+input.ng-valid,
+input.ng-touched {
+    border: 1px solid red;
+}
+
+.spinner {
+    text-align: center;
+}

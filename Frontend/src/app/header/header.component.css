@@ -1,0 +1,53 @@
+.navigation {
+    background-color: rgb(91, 102, 218);
+    overflow: hidden;
+}
+
+.group-link {
+    margin-left: 5%;
+}
+
+.auth {
+    float: right;
+    margin-right: 5%;
+}
+
+.active {
+    background-color: rgb(112, 146, 214);
+}
+
+.navigation a {
+    float: inline-start;
+    display: block;
+    color: rgb(251, 250, 250);
+    text-align: center;
+    padding: 14px 22px;
+    text-decoration: none;
+    font-size: 23px;
+}
+
+a:hover {
+    background-color: rgb(112, 146, 214);
+    color: #ffffff;
+}
+
+a:after {
+    display: block;
+    content: '';
+    border-bottom: solid 3px #ffffff;
+    transform: scaleX(0);
+    transition: transform 300ms ease-in-out;
+}
+
+a:hover:after {
+    transform: scaleX(1);
+}
+
+a {
+    text-shadow: 1px 1px rgb(48, 19, 106);
+    border-right: 1px solid #f2f2f2;
+}
+
+.home {
+    border-left: 1px solid #f2f2f2;
+}

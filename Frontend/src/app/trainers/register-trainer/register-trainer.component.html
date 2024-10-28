@@ -1,0 +1,79 @@
+<!-- Button trigger modal -->
+<button type="button" class="button-style btn btn-warning" data-bs-toggle="modal"
+    data-bs-target="#registerTrainerModal">
+    Register new trainer
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="registerTrainerModal" tabindex="-1" role="dialog"
+    aria-labelledby="registerTrainerModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="registerTrainerModalLabel">Trainer Registration Form</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="onReset()"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="trainerForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <div class="input-span-margin">
+                            <input class="form-control" id="name" formControlName="name" name="name" type="text">
+                            <span *ngIf="!trainerForm.get('name').valid && trainerForm.get('name').touched"
+                                class="help-block"><small>The name field is required</small></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <div class="input-span-margin">
+                            <input class="form-control" id="phone" formControlName="phone" name="phone" type="text">
+                            <span *ngIf="!trainerForm.get('phone').valid && trainerForm.get('phone').touched"
+                                class="help-block"><small>The phone field is
+                                    required</small></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <div class="input-span-margin">
+                            <input class="form-control" id="address" formControlName="address" name="address"
+                                type="text">
+                            <span *ngIf="!trainerForm.get('address').valid && trainerForm.get('address').touched"
+                                class="help-block"><small>The address field is required</small></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <div class="input-span-margin">
+                            <input class="form-control" id="email" formControlName="email" name="email" type="email">
+                            <span *ngIf="!trainerForm.get('email').valid && trainerForm.get('email').touched"
+                                class="help-block"><small>The email field is required and must be a
+                                    valid address</small></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="class">Classes</label>
+                        <select class="form-select" name="class" id="classes" formControlName="class">
+                            <option value="Aerobics">Aerobics</option>
+                            <option value="Instruments">Instruments/Weights</option>
+                            <option value="Boxing">Boxing</option>
+                            <option value="PersonalTrainer">Personal Trainer</option>
+                            <option value="Yoga">Yoga</option>
+                            <option value="Breakdance">Breakdance</option>
+                            <option value="Jiu-Jitsu">Jiu-Jitsu</option>
+                        </select>
+                        <span *ngIf="!trainerForm.get('class').valid && trainerForm.get('class').touched"
+                            class="help-block"><small>The classes field
+                                is required</small></span>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" (click)="onReset()"
+                            data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" [disabled]="!trainerForm.valid"
+                            data-bs-dismiss="modal">Register new trainer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
