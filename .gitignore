@@ -1,2 +1,4 @@
 Frontend/node_modules
+Frontend/.angular
+Frontend/.vscode
 Backend/node_modules
