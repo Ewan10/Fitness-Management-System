@@ -1,5 +1,7 @@
 # Fitness Centre Management System
 
+![Screenshots](/Screenshots/Fitness_Center_1.jpg)
+
 # Description
 
 This application will allow the users to manage the office operations of a fitness centre (gym). It offers registration of new members-clients of the centre, management and scheduling of classes offered and management of the trainers.
